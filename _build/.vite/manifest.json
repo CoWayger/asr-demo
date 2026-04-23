@@ -1,25 +1,25 @@
 {
-  "_web-B7oe9tT6.js": {
-    "file": "assets/web-B7oe9tT6.js",
+  "_web-5HZHgl3_.js": {
+    "file": "assets/web-5HZHgl3_.js",
     "name": "web"
   },
   "src/routes/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-CQO_Q64Z.js",
+    "file": "assets/index-Cgk3HKMP.js",
     "name": "index",
     "src": "src/routes/index.tsx?pick=default&pick=$css",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_web-B7oe9tT6.js"
+      "_web-5HZHgl3_.js"
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-C_yD7OE3.js",
+    "file": "assets/client-CKF0etfA.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
     "imports": [
-      "_web-B7oe9tT6.js"
+      "_web-5HZHgl3_.js"
     ],
     "dynamicImports": [
       "src/routes/index.tsx?pick=default&pick=$css"
