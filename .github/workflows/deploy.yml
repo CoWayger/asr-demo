@@ -35,6 +35,7 @@ jobs:
         run: |
           REPO=${{ github.event.repository.name }}
           sed -i "s|/_build/|/${REPO}/_build/|g" .output/public/index.html
+          touch .output/public/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
