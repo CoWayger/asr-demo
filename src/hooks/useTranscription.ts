@@ -27,7 +27,10 @@ const STATUS_MESSAGES: Record<TranscriptionStatus, string> = {
   error: 'Connection error',
 };
 
-export function useTranscription(getWsUrl: () => string = () => DEFAULT_WS_URL): TranscriptionHook {
+export function useTranscription(
+  getWsUrl: () => string = () => DEFAULT_WS_URL,
+  getLanguage: () => string | null = () => null,
+): TranscriptionHook {
   const [status, setStatus] = createSignal<TranscriptionStatus>('idle');
   const [transcript, setTranscript] = createSignal('');
 
@@ -89,7 +92,7 @@ export function useTranscription(getWsUrl: () => string = () => DEFAULT_WS_URL):
       ws?.send(
         JSON.stringify({
           uid: 'browser-client-1',
-          language: null,
+          language: getLanguage(),
           task: 'transcribe',
           model: 'base',
           use_vad: true,

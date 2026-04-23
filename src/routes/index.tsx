@@ -1,9 +1,30 @@
 import { createSignal } from 'solid-js';
 import { useTranscription, DEFAULT_WS_URL } from '../hooks/useTranscription';
 
+const LANGUAGES: { code: string | null; label: string }[] = [
+  { code: null, label: 'Auto' },
+  { code: 'cs', label: 'Čeština' },
+  { code: 'sk', label: 'Slovenčina' },
+  { code: 'en', label: 'English' },
+  { code: 'de', label: 'Deutsch' },
+  { code: 'fr', label: 'Français' },
+  { code: 'es', label: 'Español' },
+  { code: 'pl', label: 'Polski' },
+  { code: 'uk', label: 'Українська' },
+  { code: 'ru', label: 'Русский' },
+];
+
 export default function Home() {
   const [wsUrl, setWsUrl] = createSignal(DEFAULT_WS_URL);
-  const { isRecording, statusMessage, transcript, start, stop, clear } = useTranscription(wsUrl);
+  const [language, setLanguage] = createSignal<string | null>(null);
+  const { isRecording, statusMessage, transcript, start, stop, clear } = useTranscription(wsUrl, language);
+
+  const inputStyle = {
+    padding: '0.4rem 0.75rem',
+    'font-size': '0.875rem',
+    'border-radius': '6px',
+    border: '1px solid #d1d5db',
+  };
 
   return (
     <main
@@ -26,15 +47,26 @@ export default function Home() {
           onInput={e => setWsUrl(e.currentTarget.value)}
           disabled={isRecording()}
           style={{
+            ...inputStyle,
             flex: '1',
-            padding: '0.4rem 0.75rem',
-            'font-size': '0.875rem',
-            'border-radius': '6px',
-            border: '1px solid #d1d5db',
             'font-family': 'monospace',
             opacity: isRecording() ? '0.5' : '1',
           }}
         />
+        <select
+          value={language() ?? ''}
+          onChange={e => setLanguage(e.currentTarget.value || null)}
+          disabled={isRecording()}
+          style={{
+            ...inputStyle,
+            opacity: isRecording() ? '0.5' : '1',
+            cursor: 'pointer',
+          }}
+        >
+          {LANGUAGES.map(l => (
+            <option value={l.code ?? ''}>{l.label}</option>
+          ))}
+        </select>
         <button
           onClick={() => (isRecording() ? stop() : start())}
           style={{
