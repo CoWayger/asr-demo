@@ -26,7 +26,8 @@ jobs:
 
       - run: touch .output/public/.nojekyll
 
-      - uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .output/public
+          branch: gh-pages
+          folder: .output/public
