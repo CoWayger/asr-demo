@@ -148,7 +148,7 @@ export function useTranscription(getWsUrl: () => string = () => DEFAULT_WS_URL):
     audioContext = new AudioContext({ sampleRate: 16000 });
 
     try {
-      await audioContext.audioWorklet.addModule('/pcm-processor.js');
+      await audioContext.audioWorklet.addModule(`${import.meta.env.SERVER_BASE_URL}/pcm-processor.js`);
     } catch {
       setStatus('error');
       cleanup();
