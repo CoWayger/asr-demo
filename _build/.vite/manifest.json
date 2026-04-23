@@ -4,7 +4,7 @@
     "name": "web"
   },
   "src/routes/index.tsx?pick=default&pick=$css": {
-    "file": "assets/index-CK-zsP0E.js",
+    "file": "assets/index-CQO_Q64Z.js",
     "name": "index",
     "src": "src/routes/index.tsx?pick=default&pick=$css",
     "isEntry": true,
@@ -14,7 +14,7 @@
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CuUz1S9u.js",
+    "file": "assets/client-C_yD7OE3.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
