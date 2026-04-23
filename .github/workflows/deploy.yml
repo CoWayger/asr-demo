@@ -30,12 +30,11 @@ jobs:
       - run: npm ci
 
       - run: npm run build
+        env:
+          BASE_URL: /${{ github.event.repository.name }}
 
-      - name: Fix asset paths for subdirectory deployment
-        run: |
-          REPO=${{ github.event.repository.name }}
-          sed -i "s|/_build/|/${REPO}/_build/|g" .output/public/index.html
-          touch .output/public/.nojekyll
+      - name: Disable Jekyll
+        run: touch .output/public/.nojekyll
 
       - uses: actions/upload-pages-artifact@v3
         with:
