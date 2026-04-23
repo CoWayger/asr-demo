@@ -1,0 +1,28 @@
+{
+  "_web-B7oe9tT6.js": {
+    "file": "assets/web-B7oe9tT6.js",
+    "name": "web"
+  },
+  "src/routes/index.tsx?pick=default&pick=$css": {
+    "file": "assets/index-CK-zsP0E.js",
+    "name": "index",
+    "src": "src/routes/index.tsx?pick=default&pick=$css",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_web-B7oe9tT6.js"
+    ]
+  },
+  "virtual:$vinxi/handler/client": {
+    "file": "assets/client-69UoccuE.js",
+    "name": "client",
+    "src": "virtual:$vinxi/handler/client",
+    "isEntry": true,
+    "imports": [
+      "_web-B7oe9tT6.js"
+    ],
+    "dynamicImports": [
+      "src/routes/index.tsx?pick=default&pick=$css"
+    ]
+  }
+}
