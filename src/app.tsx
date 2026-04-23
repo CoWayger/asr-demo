@@ -4,7 +4,7 @@ import { Suspense } from 'solid-js';
 
 export default function App() {
   return (
-    <Router>
+    <Router base={import.meta.env.SERVER_BASE_URL}>
       <Suspense>
         <FileRoutes />
       </Suspense>
